@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <items>
+	<item id="NodeList/DBNProjectDatabases/DBNBookmarkFolder/DBNDashboardFolder/DBNDiagramFolder/DBNResource">
+		<column name="이름" visible="true" order="0" width="100"/>
+		<column name="경로" visible="true" order="1" width="147"/>
+		<column name="크기" visible="true" order="2" width="100"/>
+		<column name="최종 수정" visible="true" order="3" width="100"/>
+	</item>
+	<item id="NodeList/OracleTable">
+		<column name="Name" visible="true" order="0" width="106"/>
+		<column name="Partitioned" visible="true" order="1" width="100"/>
+		<column name="Created" visible="true" order="2" width="126"/>
+		<column name="Last Changed" visible="true" order="3" width="126"/>
+		<column name="Stat Row Count" visible="true" order="4" width="100"/>
+		<column name="Tablespace" visible="true" order="5" width="100"/>
+		<column name="Comment" visible="true" order="6" width="100"/>
+		<column name="Partition by interval kind" visible="true" order="7" width="146"/>
+		<column name="Partition interval" visible="true" order="8" width="102"/>
+	</item>
+	<item id="SchemaSelector">
+		<column name="Name" visible="true" order="0" width="130"/>
+	</item>
 	<item id="Suggestion/NodeList/OracleTableColumn">
-		<column name="컬럼명" visible="true" order="0" width="139"/>
+		<column name="컬럼명" visible="true" order="0" width="128"/>
 		<column name="#" visible="true" order="1" width="27"/>
-		<column name="Type" visible="true" order="2" width="94"/>
+		<column name="Type" visible="true" order="2" width="106"/>
 		<column name="Type Mod" visible="false" order="3" width="100"/>
 		<column name="Not Null" visible="true" order="3" width="59"/>
 		<column name="디폴트" visible="true" order="4" width="50"/>
 		<column name="Comment" visible="true" order="5" width="68"/>
+	</item>
+	<item id="sqlFilterValueEditPopup">
+		<column name="Value" visible="true" order="0" width="130"/>
+		<column name="Description" visible="true" order="1" width="192"/>
 	</item>
 </items>

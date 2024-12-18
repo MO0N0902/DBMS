@@ -1,0 +1,11 @@
+-- SELECT
+-- HR 계정내에 존재하는 EMPLOYEES 테이블
+-- 107행, 11개의 컬럼으로 이루어져있다
+-- 107명의 직원 데이터를 저장해놓은 연습용 테이블
+
+-- SELECT 컬럼명 FROM 테이블명;
+-- 해당 테이블에서 특정 컬럼을 선택해서 조회하겠다는 의미
+
+SELECT first_name FROM HR.EMPLOYEES;
+SELECT first_name FROM EMPLOYEES;
+-- 

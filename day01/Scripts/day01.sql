@@ -5,7 +5,7 @@
  * 범위 안에 있는 라인을 주석처리
  */ ㄴ
 --select를 사용하여 empolyees 테이블의 모든 컬럼 조회하기
-SELECT * FROM employees;
+SELECT  FROM employees;
 -- select를 사용하여 empolyees 테이블의 first_name 컬럼만 선택하여 조회하기
 SELECT first_name FROM hr.EMPLOYEES;
 

@@ -1,6 +1,8 @@
+dialog.default.folder=D\:\\web_0900_mjh\\dbms\\test\\TEST_DBMS\\Scripts
 driver.selector.orderBy=score
 eclipse.preferences.version=1
 project.active=day01
 sample.database.canceled=true
 tipOfTheDayInitializer.notFirstRun=true
-ui.auto.update.check.time=1734337790150
+ui.auto.update.check.time=1734393913678
+ui.show.tip.of.the.day.on.startup=true
