@@ -1,8 +1,9 @@
 dialog.default.folder=D\:\\web_0900_mjh\\dbms\\test\\TEST_DBMS\\Scripts
 driver.selector.orderBy=score
 eclipse.preferences.version=1
-project.active=day01
+org.jkiss.dbeaver.core.confirm.drop_sql=always
+project.active=day04
 sample.database.canceled=true
 tipOfTheDayInitializer.notFirstRun=true
-ui.auto.update.check.time=1734393913678
+ui.auto.update.check.time=1734566003295
 ui.show.tip.of.the.day.on.startup=true

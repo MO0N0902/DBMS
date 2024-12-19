@@ -1,0 +1,119 @@
+-- FK 관꼐맺은 테이블 수정 / 삭제
+CREATE TABLE TBL_PHONE(
+	PHONE_NUMBER VARCHAR2(100),
+	PHONE_COLOR VARCHAR2(100),
+	PHONE_SIZE NUMBER,
+	PHONE_PRICE NUMBER,
+	PHONE_SALE NUMBER,
+	PHONE_PRODUCTION_DATE DATE,
+	CONSTRAINT PK_PHONE PRIMARY KEY(PHONE_NUMBER)
+);
+
+CREATE TABLE TBL_CASE(
+CASE_NUMBER VARCHAR2(100),
+CASE_COLOR VARCHAR2(100),
+CASE_PRICE NUMBER,
+PHONE_NUMBER VARCHAR2(100),
+CONSTRAINT PK_CASE PRIMARY KEY(CASE_NUMBER),
+CONSTRAINT FK_CASE FOREIGN KEY(PHONE_NUMBER) REFERENCES TBL_PHONE(PHONE_NUMBER)
+);
+
+SELECT *FROM TBL_PHONE;
+SELECT *FROM TBL_CASE;
+
+
+--관걔를 맺은 테이블의 DML
+--자식테이블은 부모테이블의 값을 참조하기 때문에 항상 부모테이블에 DATA가 먼저 들어가야한다
+--PHONE 테이블이 부모이므로 PHONE에 먼저 데이터를 넣어야한다
+
+INSERT INTO TBL_PHONE tp 
+VALUES('a1', 'white', 1, 100, 0, '2024-12-01');
+-- DATE 타입의 컬럼에 문자타입의 값을 'YYYY-MM-DD'형태로 넣으면 자동으로 DATE타입으로 변환되어 들어간다
+
+INSERT INTO TBL_PHONE tp 
+VALUES('a2', 'black', 1,120, 10, sysdate-10);
+
+INSERT INTO TBL_PHONE tp 
+VALUES('a3','gray', 1,130, 20, TO_DATE('2024-05-05'));
+
+SELECT *FROM TBL_PHONE tp ;
+
+INSERT INTO TBL_CASE tc 
+--VALUES('A', 'WHITE', 5, 'a1');
+VALUES('B', 'BLACK', 2, 'a2');
+
+-- 부모테이블의 값을 수정하기
+UPDATE TBL_PHONE 
+SET PHONE_COLOR  = 'blue'
+WHERE PHONE_NUMBER  = 'a1';
+
+--- 부모테이블 pk값 수정
+-- 참조하고있는 값일때는 수정 불가능
+-- 참조하고있지 않은값은 수정 가능
+UPDATE TBL_PHONE 
+SET PHONE_NUMBER ='a03'
+WHERE PHONE_NUMBER ='a3';
+
+UPDATE TBL_PHONE 
+SET PHONE_NUMBER ='a01'
+WHERE PHONE_NUMBER ='a1'; -- CASE_NUMBER에서 참조하고 있던 값이기 때문에 상위 테이블값 변경 불가능
+
+-- 자식 테이블을 먼저 수정하여 해당 값을 참조하지 않도록 수정해야함
+-- 1) 자식 테이블에서 참조중인 값을 다른 값으로 변경한다
+UPDATE TBL_CASE 
+SET PHONE_NUMBER ='a03'
+WHERE CASE_NUMBER ='A';
+
+UPDATE TBL_PHONE 
+SET PHONE_NUMBER ='a01'
+WHERE PHONE_NUMBER = 'a1';
+
+UPDATE TBL_CASE 
+SET PHONE_NUMBER = 'a01'
+WHERE CASE_NUMBER ='A';
+
+
+
+-- 2) 자식테이블에서 참조중인 값을 NULL로 변경한다(권장하지 않음)
+UPDATE TBL_CASE 
+SET PHONE_NUMBER = NULL
+WHERE CASE_NUMBER ='B' -- 참조하고있던 값을 NULL로 수정
+
+SELECT * FROM TBL_CASE tc ;
+SELECT * FROM TBL_PHONE tp ;
+
+UPDATE TBL_PHONE 
+SET PHONE_NUMBER = 'a02'
+WHERE PHONE_NUMBER ='a2';
+
+UPDATE TBL_CASE 
+SET PHONE_NUMBER ='a02'
+WHERE CASE_NUMBER ='B';
+
+
+-- 부모테이블에서 데이터 삭제하기
+-- 자식테이블에서 참조중인 값들을 먼저 처리해야한다
+DELETE FROM TBL_PHONE tp
+WHERE PHONE_NUMBER = 'a02'; --자식테이블에서 참조중인 값이라 삭제 불가능
+--1) 자식테이블의 값을 먼저 삭제후 부모테이블의 값을 삭제한다(참조중인 행 자체를 삭제)
+DELETE FROM TBL_CASE tc 
+WHERE phone_number = 'a02';
+
+DELETE FROM TBL_PHONE tp 
+WHERE PHONE_NUMBER = 'a02';
+
+--2) 자식테이블에서 참조중인 값을 수정 후 부모 테이블의 값을 삭제한다
+UPDATE TBL_CASE 
+SET PHONE_NUMBER = NULL 
+WHERE CASE_NUMBER ='A';
+
+DELETE FROM TBL_PHONE tp 
+WHERE PHONE_NUMBER='a01';
+
+SELECT * FROM TBL_PHONE tp ;
+SELECT * FROM TBL_CASE tc ;
+
+DROP TABLE
+
+
+

@@ -17,17 +17,39 @@
 		<column name="Partition by interval kind" visible="true" order="7" width="146"/>
 		<column name="Partition interval" visible="true" order="8" width="102"/>
 	</item>
+	<item id="NodeList/OracleTableConstraint">
+		<column name="이름" visible="true" order="0" width="100"/>
+		<column name="소유자" visible="true" order="1" width="100"/>
+		<column name="Type" visible="true" order="2" width="100"/>
+		<column name="Condition" visible="true" order="3" width="100"/>
+		<column name="Status" visible="true" order="4" width="100"/>
+	</item>
+	<item id="NodeList/OracleTableForeignKey">
+		<column name="이름" visible="true" order="0" width="100"/>
+		<column name="소유자" visible="true" order="1" width="100"/>
+		<column name="Ref Table" visible="true" order="2" width="100"/>
+		<column name="Type" visible="true" order="3" width="100"/>
+		<column name="Ref Object" visible="true" order="4" width="100"/>
+		<column name="On Delete" visible="true" order="5" width="100"/>
+		<column name="Status" visible="true" order="6" width="100"/>
+	</item>
 	<item id="SchemaSelector">
 		<column name="Name" visible="true" order="0" width="130"/>
 	</item>
 	<item id="Suggestion/NodeList/OracleTableColumn">
-		<column name="컬럼명" visible="true" order="0" width="128"/>
+		<column name="컬럼명" visible="true" order="0" width="127"/>
 		<column name="#" visible="true" order="1" width="27"/>
-		<column name="Type" visible="true" order="2" width="106"/>
+		<column name="Type" visible="true" order="2" width="94"/>
 		<column name="Type Mod" visible="false" order="3" width="100"/>
 		<column name="Not Null" visible="true" order="3" width="59"/>
 		<column name="디폴트" visible="true" order="4" width="50"/>
-		<column name="Comment" visible="true" order="5" width="68"/>
+		<column name="Comment" visible="true" order="5" width="457"/>
+	</item>
+	<item id="scriptSelectorViewer">
+		<column name="Script" visible="true" order="0" width="163"/>
+		<column name="Time" visible="true" order="1" width="189"/>
+		<column name="Info" visible="true" order="2" width="74"/>
+		<column name="Folder" visible="true" order="3" width="86"/>
 	</item>
 	<item id="sqlFilterValueEditPopup">
 		<column name="Value" visible="true" order="0" width="130"/>
