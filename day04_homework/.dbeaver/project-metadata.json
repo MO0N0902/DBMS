@@ -1,1 +1,1 @@
-{"resources":{"Scripts/day04_hw.sql":{"default-datasource":"oracle_thin-193deec7235-2b131aa32e0dee92","default-schema":"HR"}}}
+{"resources":{"Scripts/Script.sql":{"default-datasource":"oracle_thin-193deec7235-2b131aa32e0dee92","default-schema":"HR"},"Scripts/day04_hw.sql":{"default-schema":"HR","default-datasource":"oracle_thin-193deec7235-2b131aa32e0dee92"}}}
