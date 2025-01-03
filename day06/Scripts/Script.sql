@@ -1,0 +1,79 @@
+-- 계정명 test 01
+-- 비밀번호 1234
+-- 계정만들고 a1~a4까지 등록 후 문제 풀기ㅡ
+/* 1. JOBS 테이블에서 JOB_ID로 직원들의 JOB_TITLE, EMAIL, 성, 이름 조회 */
+SELECT * FROM HR.JOBS j ;
+SELECT * FROM HR.EMPLOYEES e ;
+
+
+SELECT J.JOB_ID, J.JOB_TITLE, EMAIL, FIRST_NAME, LAST_NAME 
+FROM hr.JOBS j JOIN HR.EMPLOYEES e 
+ON J.JOB_ID =E.JOB_ID ;
+
+/* 2. EMPLOYEES 테이블에서 HIREDATE가 2003~2004년까지인 사원의 정보와 부서명 검색 */
+SELECT E.EMPLOYEE_ID , E.FIRST_NAME , E.LAST_NAME ,E.DEPARTMENT_ID, E.HIRE_DATE 
+FROM HR.EMPLOYEES e 
+WHERE E.HIRE_DATE BETWEEN '2003-01-01' AND '2004-12-31';
+
+SELECT e.FIRST_name || ' ' || e.last_name 이름, e.hire_date 입사일, d.department_name 부서명
+FROM HR.DEPARTMENTS d JOIN HR.EMPLOYEES e
+ON d.DEPARTMENT_ID = e.DEPARTMENT_ID AND e.HIRE_DATE BETWEEN '2003-01-01' AND '2004-12-31';
+
+SELECT *
+FROM HR.EMPLOYEES e ;
+
+/* 3. EMP 테이블에서 ENAME에 L이 있는 사원들의 DNAME과 LOC 검색 */
+SELECT * FROM HR.EMP e ;
+
+SELECT E.ENAME , D.DNAME , D.LOC 
+FROM HR.EMP e JOIN HR.DEPT d 
+ON E.DEPTNO = D.DEPTNO 
+WHERE E.ENAME = '%L%';
+
+/* 4. SCHEDULE 테이블에서 경기 일정이 20120501 ~ 20120502 사이에 있는 경기장 전체 정보 조회 */
+SELECT * FROM HR.SCHEDULE s ;
+
+SELECT *
+FROM HR.SCHEDULE s 
+WHERE S.SCHE_DATE BETWEEN '20120501' AND '20120502';
+
+
+/* 5. 축구 선수들 중에서 각 팀 별로 키가 가장 큰 선수들의 전체 정보 조회 */
+/* 위 문제를 JOIN없이 풀기
+ * (A,B) IN (C, D) : A = C AND B = D */
+SELECT * FROM HR.PLAYER p ;
+
+SELECT *
+FROM HR.PLAYER p 
+WHERE HEIGHT = (SELECT MAX(HEIGHT)
+FROM HR.PLAYER p2 
+WHERE P.TEAM_ID = P2.TEAM_ID)
+ORDER BY P.TEAM_ID ;
+
+
+/* 6. EMP 테이블의 SAL을 이용, SALGRAED 테이블을 참고하여 모든 사원의 정보를 GRADE를 포함하여 조회 */
+
+
+SELECT E.* ,
+	CASE
+		WHEN E.SAL BETWEEN 700 AND 1200 THEN '1'
+		WHEN E.SAL BETWEEN 1201 AND 1400 THEN '2'		
+		WHEN E.SAL BETWEEN 1401 AND 2000 THEN '3'		
+		WHEN E.SAL BETWEEN 2001 AND 3000 THEN '4'	
+		ELSE '5'
+	END AS GRADE
+FROM HR.EMP e;
+
+/* 7. EMP 테이블에서 각 사원의 매니저 이름 조회 */
+SELECT * FROM HR.EMP e ;
+
+
+
+/* 8. 축구 선수들 중에서 각 팀 별로 키가 가장 큰 선수들의 전체 정보 조회 */
+SELECT P.*
+FROM HR.PLAYER p JOIN HR.PLAYER p2 
+ON P2.TEAM_ID = P.TEAM_ID;
+WHERE
+
+
+

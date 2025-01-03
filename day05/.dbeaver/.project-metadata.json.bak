@@ -1,1 +1,1 @@
-{"resources":{"Scripts/Script.sql":{"default-datasource":"oracle_thin-193e19d2649-1b67f8a3769dfa0"}}}
+{"resources":{"Scripts/Script.sql":{"default-schema":"SYS","default-datasource":"oracle_thin-193e329bb62-2e18c3ede7f1bb20"},"Scripts/day05(join).sql":{"default-schema":"HR","default-datasource":"oracle_thin-193e19d2649-1b67f8a3769dfa0"},"Scripts/day05(test계정로그인).sql":{"default-schema":"TEST","default-datasource":"oracle_thin-193e324383f-62dff8cb42ed983a"},"Scripts/day05(집합).sql":{"default-schema":"HR","default-datasource":"oracle_thin-193e19d2649-1b67f8a3769dfa0"}}}
